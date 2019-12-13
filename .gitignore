@@ -5,3 +5,5 @@ __pycache__/
 # vim specific
 *.swp
 *.swo
+
+set_env_vars.sh

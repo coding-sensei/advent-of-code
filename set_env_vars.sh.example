@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#run with: source ./set_env_vars.sh
+export AOC_YEAR=2015
+export SESSION_COOKIE=1234567
