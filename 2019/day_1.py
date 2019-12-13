@@ -1,14 +1,12 @@
 from common import read_numbers
 
+def calculate_required_fuel_for_module(mass):
+    return (int(mass/3) - 2)
+
 def get_fuel_required(list_of_masses):
-    total_fuel = 0
+    return sum([calculate_required_fuel_for_module(mass) for mass in list_of_masses])
 
-    for mass in list_of_masses:
-        total_fuel = total_fuel + (int(mass/3) - 2)
-
-    return total_fuel
-
-def get_fuel_required_solution():
+def get_fuel_required_solution_part_a():
     return  get_fuel_required(read_numbers('2019/input/input1.txt'))
 
 if __name__ == '__main__':

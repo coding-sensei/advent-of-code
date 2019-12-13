@@ -1,6 +1,13 @@
 import pytest
 
-from day_1 import get_fuel_required, get_fuel_required_solution
+from day_1 import *
+
+def test_calculate_required_fuel_for_module():
+    mass = 12
+
+    fuel = calculate_required_fuel_for_module(mass)
+
+    assert fuel == 2
 
 def test_get_fuel_with_no_mass():
     masses = []
@@ -23,5 +30,5 @@ def test_get_fuel_with_multiple_masses():
 
     assert fuel == 4
 
-def test_solution():
-    assert get_fuel_required_solution() == 3212842
+def test_solution_part_a():
+    assert get_fuel_required_solution_part_a() == 3212842
