@@ -37,12 +37,5 @@ def test_get_floor_with_multiple_up_and_down_directions():
 
     assert floor == 3
 
-def test_get_floor_with_input_file():
-    directions = [')',')','(','(','(','(','(']
-
-    floor = get_floor(directions)
-
-    assert floor == 3
-
 def test_solution():
     assert get_floor_solution() == 138

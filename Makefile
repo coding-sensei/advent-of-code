@@ -22,7 +22,7 @@ build_image: clean
 
 .PHONY: clean
 clean:
-			$(DOCKER_RUN) find . -regextype posix-egrep -regex "(.*__pycache__$$)|(.*\.py[oc]$$)" -delete
+			$(DOCKER_RUN) find . -regex "(.*__pycache__$$)|(.*\.py[oc]$$)" -delete
 
 get-%:
 	./get_input.sh $*
