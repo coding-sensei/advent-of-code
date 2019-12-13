@@ -1,5 +1,6 @@
 DOCKER_IMAGE = my_docker
-DOCKER_ARGS := --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR)
+DOCKER_USER = -u $(shell id -u):$(shell id -g)
+DOCKER_ARGS := --rm -v $(CURDIR):$(CURDIR) -w $(CURDIR) $(DOCKER_USER)
 DOCKER_RUN = docker run -t $(DOCKER_ARGS) $(DOCKER_IMAGE)
 
 enter_container: build_image
@@ -9,7 +10,7 @@ run: build_image
 			$(DOCKER_RUN) $(command)
 
 test: build_image
-			$(DOCKER_RUN) pytest 2015/
+			$(DOCKER_RUN) pytest 2019/
 
 check: build_image
 			$(DOCKER_RUN) lint test
@@ -22,7 +23,7 @@ build_image: clean
 
 .PHONY: clean
 clean:
-			$(DOCKER_RUN) find . -regex "(.*__pycache__$$)|(.*\.py[oc]$$)" -delete
+			@find . -regextype posix-egrep -regex "(.*__pycache__$$)|(.*\.py[oc]$$)" -delete
 
 get-%:
 	./get_input.sh $*
